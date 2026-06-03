@@ -67,59 +67,6 @@
         </div>
     </div>
 
-    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="row mb-4">
-                    <div class="col-9">
-                        <h2 id="image-title"></h2>
-                    </div>
-                    <div class="col-3 text-end">
-                        <button class="btn btn-secondary btn-lg active" onclick="closeModal()">X</button>
-                    </div>
-                </div>
-
-                <img src="" id="image-preview" class="w-100" alt="Vergrößertes Bild">
-            </div>
-        </div>
-    </div>
-</div>
-<div class="modal-backdrop fade show d-none" id="backdrop"></div>
-
-<script type="application/javascript">
-    let imageModal = document.getElementById('imageModal');
-    let backdrop = document.getElementById('backdrop');
-
-    function openModal() {
-        backdrop.classList.remove('d-none');
-        imageModal.style.display = 'block';
-        imageModal.classList.add('show');
-    }
-
-    function closeModal() {
-        backdrop.classList.add('d-none');
-        imageModal.style.display = 'none';
-        imageModal.classList.remove('show');
-    }
-
-    window.onclick = function(event) {
-        if (event.target === imageModal) {
-            closeModal();
-        }
-    };
-
-    Array.prototype.forEach.call(document.getElementsByClassName('pop'), function(el) {
-        el.addEventListener('click', function() {
-            document.getElementById('image-preview').setAttribute('src', this.getAttribute('src').replace('img_256/', 'img_1024/'));
-            document.getElementById('image-title').innerText = this.dataset.name;
-            openModal();
-        });
-    });
-</script>
-    <script type="application/javascript">
-        // const colorMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        // document.querySelector('html').setAttribute('data-bs-theme', colorMode);
-    </script>
-</body>
+    
+    </body>
 </html>
