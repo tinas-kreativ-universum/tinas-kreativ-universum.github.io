@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Tinas Häkelarbeiten</title>
+
+
+    <link href="style.css" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.png" type="image/png">
+    
+    </head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-2">
+                <nav class="navbar">
+                    <div class="container-fluid">
+                                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="index.html">Start</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="shop.html">Shop</a>
+                                    <ul>
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="artikel.html">Fertige Artikel</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="anleitungen.html">Anleitungen</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="komplettsets.html">Komplettsets</a>
+        </li>
+    </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="workshop.html">Workshop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="meine_arbeiten.html">Meine Arbeiten</a>
+                                                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="ueber_mich.html">Über mich</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="impressum.html">Impressum</a>
+                            </li>
+                        </ul>
+                                            </div>
+                </nav>
+            </div>
+            <div id="contentTop" class="col-12 col-md-10">
+                    <h2 id="meine_arbeiten" class="my-4 dancing-script">Tischset im Landhausstil</h2>
+
+            <p>Verleihe deinem Esstisch ein Stück Gemütlichkeit!<br />
+<br />
+Du liebst den modernen Landhaus-Look und legst Wert auf das gewisse Etwas in deinem Zuhause? Meine handgehäkelten Platzsets bringen mit ihrer wunderschönen, griffigen Struktur und dem zeitlosen Design sofort Wärme und Stil auf jeden Tisch.<br />
+<br />
+Ob für den täglichen Kaffee am Morgen oder das ausgiebige Dinner mit deinen Liebsten – diese robusten Tischsets sind nicht nur ein echter Hingucker, sondern auch wunderbar alltagstauglich. Jedes Stück wird von mir mit viel Liebe zum Detail von Hand gefertigt.<br />
+<br />
+Hol dir den natürlichen Look nach Hause</p>
+    
+            <p>Preis: 12,00 €</p>
+    
+            <p>Anleitung: 0,00 €</p>
+    
+    <div class="row">
+                                <img
+                    class="d-block mx-auto mb-4 pop"
+                    src="img_1024/zuhause/"
+                    width="1024"
+                    data-name="Tischset im Landhausstil"
+                    alt="Tischset im Landhausstil"
+            />
+                        </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script type="application/javascript">
+        // Custom Card Carousel JS (Bootstrap replacement)
+        document.addEventListener('DOMContentLoaded', () => {
+            const carousels = document.querySelectorAll('.carousel');
+            carousels.forEach(carousel => {
+                const items = carousel.querySelectorAll('.carousel-item');
+                const indicators = carousel.querySelectorAll('.carousel-indicators button');
+                const prevBtn = carousel.querySelector('.carousel-control-prev');
+                const nextBtn = carousel.querySelector('.carousel-control-next');
+                
+                if (items.length === 0) return;
+                
+                let currentIndex = 0;
+                
+                function showSlide(index) {
+                    if (index < 0) {
+                        index = items.length - 1;
+                    } else if (index >= items.length) {
+                        index = 0;
+                    }
+                    
+                    items[currentIndex].classList.remove('active');
+                    if (indicators.length > currentIndex) {
+                        indicators[currentIndex].classList.remove('active');
+                    }
+                    
+                    currentIndex = index;
+                    items[currentIndex].classList.add('active');
+                    if (indicators.length > currentIndex) {
+                        indicators[currentIndex].classList.add('active');
+                    }
+                }
+                
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        showSlide(currentIndex - 1);
+                    });
+                }
+                
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        showSlide(currentIndex + 1);
+                    });
+                }
+                
+                indicators.forEach((indicator, index) => {
+                    indicator.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        showSlide(index);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
