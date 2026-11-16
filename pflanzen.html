@@ -4,35 +4,53 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Tinas Häkelarbeiten</title>
-
+    <title>Tinas Kreativ Universum</title>
 
     <link href="style.css" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.png" type="image/png">
-    
-    </head>
+        </head>
 
 <body>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-md-2">
-                <nav class="navbar">
-                    <div class="container-fluid">
-                                                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="index.html">Start</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="shop.html">Shop</a>
-                                                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="workshop.html">Workshop</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="meine_arbeiten.html">Meine Arbeiten</a>
-                                    <ul>
+    <!-- Site Header -->
+    <header class="site-header">
+        <div class="site-header__inner">
+            <a class="site-logo dancing-script" href="index.html">Tinas Kreativ Universum</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mainNav">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+        
+    <!-- Top Navigation -->
+    <nav class="top-nav" id="mainNav" aria-label="Hauptnavigation">
+        <ul class="top-nav__list">
+            <li class="top-nav__item">
+                <a class="top-nav__link" href="index.html">Start</a>
+            </li>
+            <li class="top-nav__item">
+                <a class="top-nav__link" href="shop.html">Shop</a>
+            </li>
+            <li class="top-nav__item">
+                <a class="top-nav__link" href="workshop.html">Workshops</a>
+            </li>
+            <li class="top-nav__item">
+                <a class="top-nav__link active" href="meine_arbeiten.html">Meine Arbeiten</a>
+            </li>
+            <li class="top-nav__item">
+                <a class="top-nav__link" href="ueber_mich.html">Über mich</a>
+            </li>
+            <li class="top-nav__item">
+                <a class="top-nav__link" href="impressum.html">Impressum</a>
+            </li>
+        </ul>
+
+                    <div class="sub-nav" aria-label="Unternavigation">
+                <div class="sub-nav__inner">
+                    
+                        <ul>
                                 <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="tierchen.html#contentTop">Amigurumi Tierchen</a>
             </li>
@@ -73,25 +91,18 @@
                 <a class="nav-link" aria-current="page" href="schilder_und_bilder.html#contentTop">Schilder &amp; Bilder</a>
             </li>
                                             </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="ueber_mich.html">Über mich</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" href="impressum.html">Impressum</a>
-                            </li>
-                        </ul>
-                                            </div>
-                </nav>
-            </div>
-            <div id="contentTop" class="col-12 col-md-10">
-                    <div class="container">
-        <h2 id="category" class="my-4 dancing-script">Pflanzen</h2>
 
-                    <div class="my-4">
-                
+                </div>
             </div>
-        
+            </nav>
+
+    <!-- Main Content -->
+    <main id="contentTop">
+            <div class="page-container">
+        <header class="page-header">
+            <h1 class="page-header__title dancing-script">Pflanzen</h1>
+                    </header>
+
         <div class="row">
                         <div class="col-auto mb-4">
                 <div class="card ">
@@ -236,67 +247,53 @@ Bringe mit diesem farbenfrohen Blumenkranz dauerhafte Frische in dein Zuhause! O
             </div>
                     </div>
 
-        <div class="mt-4">
-            <a href="meine_arbeiten.html" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Zurück</a>
+        <div class="text-center mt-4 mb-4">
+            <a href="meine_arbeiten.html" class="btn btn-secondary btn-lg" role="button">&larr; Zurück zu Meine Arbeiten</a>
         </div>
     </div>
-            </div>
-        </div>
-    </div>
+    </main>
 
-    
     <script type="application/javascript">
-        // Custom Card Carousel JS (Bootstrap replacement)
+        // Mobile nav toggle
+        const navToggle = document.getElementById('navToggle');
+        const mainNav   = document.getElementById('mainNav');
+        if (navToggle && mainNav) {
+            navToggle.addEventListener('click', () => {
+                const isOpen = mainNav.classList.toggle('is-open');
+                navToggle.setAttribute('aria-expanded', isOpen);
+            });
+        }
+
+        // Custom Card Carousel JS
         document.addEventListener('DOMContentLoaded', () => {
             const carousels = document.querySelectorAll('.carousel');
             carousels.forEach(carousel => {
-                const items = carousel.querySelectorAll('.carousel-item');
+                const items      = carousel.querySelectorAll('.carousel-item');
                 const indicators = carousel.querySelectorAll('.carousel-indicators button');
-                const prevBtn = carousel.querySelector('.carousel-control-prev');
-                const nextBtn = carousel.querySelector('.carousel-control-next');
-                
+                const prevBtn    = carousel.querySelector('.carousel-control-prev');
+                const nextBtn    = carousel.querySelector('.carousel-control-next');
+
                 if (items.length === 0) return;
-                
+
                 let currentIndex = 0;
-                
+
                 function showSlide(index) {
-                    if (index < 0) {
-                        index = items.length - 1;
-                    } else if (index >= items.length) {
-                        index = 0;
-                    }
-                    
+                    if (index < 0)              index = items.length - 1;
+                    else if (index >= items.length) index = 0;
+
                     items[currentIndex].classList.remove('active');
-                    if (indicators.length > currentIndex) {
-                        indicators[currentIndex].classList.remove('active');
-                    }
-                    
+                    if (indicators.length > currentIndex) indicators[currentIndex].classList.remove('active');
+
                     currentIndex = index;
                     items[currentIndex].classList.add('active');
-                    if (indicators.length > currentIndex) {
-                        indicators[currentIndex].classList.add('active');
-                    }
+                    if (indicators.length > currentIndex) indicators[currentIndex].classList.add('active');
                 }
-                
-                if (prevBtn) {
-                    prevBtn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        showSlide(currentIndex - 1);
-                    });
-                }
-                
-                if (nextBtn) {
-                    nextBtn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        showSlide(currentIndex + 1);
-                    });
-                }
-                
+
+                if (prevBtn) prevBtn.addEventListener('click', e => { e.preventDefault(); showSlide(currentIndex - 1); });
+                if (nextBtn) nextBtn.addEventListener('click', e => { e.preventDefault(); showSlide(currentIndex + 1); });
+
                 indicators.forEach((indicator, index) => {
-                    indicator.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        showSlide(index);
-                    });
+                    indicator.addEventListener('click', e => { e.preventDefault(); showSlide(index); });
                 });
             });
         });
